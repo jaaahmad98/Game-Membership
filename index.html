@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Membership System</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Add your custom styles here */
+    .hero {
+      background-image: url("background.webp");
+      background-size: cover;
+      background-position: center;
+      padding: 150px 0;
+    }
+    .hero-content {
+      background-color: rgba(248, 245, 245, 0.575);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .game-icons {
+      margin-top: 50px;
+    }
+    .game-icons img {
+      width: 100px;
+      margin-right: 20px;
+    }
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent">
+  <a class="navbar-brand" href="index.html">
+    <img src="logo.png" alt="Logo" width="50" height="50">
+  </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="plan.php">Plan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="info.html">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="signin.html">Sign In</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <style>
+     .navbar {
+      transition: background-color 0.3s ease-in-out;
+    background-color: transparent;
+    }
+    .navbar-scrolled {
+      background-color: #343a40 !important; /* Update with your desired color */
+    }
+    .navbar-brand img {
+      transition: opacity 0.3s ease-in-out;
+    }
+    .navbar-scrolled .navbar-brand img {
+      opacity: 0.8;
+    }
+    .gradient-bg {
+      background: linear-gradient(to right, #005660 , #fda085);
+      padding: 80px 0;
+}
+
+  </style>
+  
+  
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <div class="hero-content">
+            <h1 class="display-4 mb-4">Welcome to the Game Membership System</h1>
+            <p class="lead mb-4">Choose your game interest and subscribe to our membership tiers for an enhanced gaming experience!</p>
+            <a class="btn btn-light btn-lg" href="signin.html">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <div class="row game-icons justify-content-center">
+        <div class="col-auto">
+          <img src="valorant.png" alt="Valorant">
+        </div>
+        <div class="col-auto">
+          <img src="apex-legends.png" alt="Apex Legends">
+        </div>
+        <div class="col-auto">
+          <img src="csgo.png" alt="CSGO">
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .game-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+  
+    .game-icons img {
+      max-width: 100px;
+      height: auto;
+      margin: 10px;
+    }
+  </style>
+
+
+
+<!-- New Section 1-->
+<section class="gradient-bg text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="font-weight-bold text-dark">Get Your Favourite Skins For Less Price</h2> 
+        <p class="font-monospace text-dark lead fw-bold">Subscribe to our membership and you will get tons of benefit</p>
+      </div>
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="section-1.jpg" alt="Image" class="img-fluid">
+        </div>
+        <!-- Add your image/video/gif here -->
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- New Section 2 -->
+<section class="gradient-bg text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="plan.gif" alt="Image" class="img-fluid">
+        </div>
+        <!-- Add your image here -->
+      </div>
+      <div class="col-md-6">
+        <h2 class="font-weight-bold text-dark">Choose Subscription</h2>
+        <p class="font-monospace text-dark lead fw-bolder">Pick one from three of our Subscription with fair price for you to enjoy your in-game cosmetic</p>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<Style>
+  .image-container {
+border: 5px solid #343a40;
+border-radius: 20px;
+overflow: hidden;
+}
+
+.image-container img {
+width: 100%;
+height: auto;
+}
+</Style>
+
+
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>Game Membership System &copy; 2023. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/js/bootstrap.min.js"></script>
+  <script>$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+
+    if (scroll > 0) {
+      $(".navbar").addClass("navbar-scrolled");
+      $(".navbar-brand img").css("opacity", "0.8");
+    } else {
+      $(".navbar").removeClass("navbar-scrolled");
+      $(".navbar-brand img").css("opacity", "1");
+    }
+  });</script>
+</body>
+</html>

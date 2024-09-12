@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <nav class="navbar">
+        <ul>
+          <li><a href="welcome.html">Profile</a></li>
+          <li><a href="events.php">Events</a></li>
+          <li><a href="skins.php">Skins</a></li>
+          <li><a href="subscription.html">Subscription</a></li>
+        </ul>
+        <ul>
+          <li><a href="logout.php">Logout</a></li>
+        </ul>
+      </nav>
+    <title>Update Profile - Game Membership System</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Add the updated CSS styles here */
+        .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+    .navbar ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .navbar li {
+      margin-right: 20px;
+    }
+    .navbar li:last-child {
+      margin-right: 0;
+    }
+    .navbar li a {
+      color: #FFF;
+      text-decoration: none;
+    }
+        /* Body styles */
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form styles */
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        /* Add your additional CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Profile</h1>
+        <form id="update-profile-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="gameInterest">Game Interest:</label>
+                <select id="gameInterest" name="gameInterest">
+                    <option value="1">Valorant</option>
+                    <option value="2">Apex Legends</option>
+                    <option value="3">CSGO</option>
+                </select>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div>
+                <input type="submit" value="Update Profile">
+            </div>
+        </form>
+        <div id="update-message"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Retrieve the user's information and populate the form fields
+            $.ajax({
+                url: "get-user-info.php",
+                method: "GET",
+                dataType: "json",
+success: function(response) {
+                    if (response.userId) {
+                        var userInfo = response;
+                        $("#name").val(userInfo.name);
+                        $("#email").val(userInfo.email);
+                        $("#gameInterest").val(userInfo.gameInterest);
+                    } else {
+                        $("#update-message").text("Failed to retrieve user information.").addClass("error");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                    $("#update-message").text("Error loading user information.").addClass("error");
+                }
+            });
+
+            // Update the user's profile
+            $("#update-profile-form").submit(function(event) {
+                event.preventDefault();
+
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var gameInterest = $("#gameInterest").val();
+                var password = $("#password").val();
+
+                $.ajax({
+                    url: "update-profile.php",
+                    method: "POST",
+                    data: {
+                        name: name,
+                        email: email,
+                        gameInterest: gameInterest,
+                        password: password
+                    },
+                    dataType: "text",
+                    success: function(response) {
+                        if (response === "Success") {
+                            $("#update-message").text("Profile successfully updated.").removeClass("error").addClass("success");
+                        } else {
+                            $("#update-message").text(response).addClass("error");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                        $("#update-message").text("Error updating profile.").addClass("error");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

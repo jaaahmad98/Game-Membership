@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamer's Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <style>
+    body {
+      background-color: #141E30;
+      background-image: linear-gradient(to bottom right, #141E30, #243B55);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #FFF;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #222;
+    }
+    .navbar ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .navbar li {
+      margin-right: 20px;
+    }
+    .navbar li:last-child {
+      margin-right: 0;
+    }
+    .navbar li a {
+      color: #FFF;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+    color: #F8BBD0;
+  }
+  
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .profile-banner {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: -75px;
+      border: 5px solid #00ff7b;
+    }
+    .user-info {
+      background-color: rgba(20, 30, 48, 0.9); 
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .user-info h3 {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .level-bar {
+      background-color: rgba(255, 255, 255, 0.2);
+      height: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .level-progress {
+      background-color: #4caf4c;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0 10px;
+    }
+      .social-links a.facebook {
+      background-image: url("path/to/facebook-logo.png"); /* Replace with the path to the uploaded Facebook logo image */
+    }
+
+    .social-links a.twitter {
+      background-image: url("/xampp/htdocs/beta600/uploads/twitter-logo.png"); /* Replace with the path to the uploaded Twitter logo image */
+    }
+
+    .social-links a.instagram {
+      background-image: url("path/to/instagram-logo.png"); /* Replace with the path to the uploaded Instagram logo image */
+    }
+
+  h1.welcome-message {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+    h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 10px;
+    }
+
+    h3 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 5px;
+  }
+
+  p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.user-credentials {
+  margin-bottom: 20px;
+}
+
+/* interactable level bar */
+.draggable-element {
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  left: -10px;
+  cursor: grab;
+}
+
+
+.banner-valorant {
+      background-image: url("uploads/valorant-banner.jpg");
+    }
+
+    .banner-apex {
+      background-image: url("uploads/apex-banner.jpg");
+    }
+
+    .banner-counterstrike {
+      background-image: url("uploads/counterstrike-banner.jpg");
+    }
+
+    .background-valorant {
+      background-color: #141E30;
+      background-image: url("uploads/valorant-background.jpg");
+    }
+
+    .background-apex {
+      background-color: #fff4f4;
+      background-image: url("uploads/apex-background.jpeg")
+    }
+
+    .background-counterstrike {
+      background-color: #e4e2fc;
+      background-image: url("uploads/csgo-background.jpg");
+    }
+
+    .navbar-transparent {
+  background-color: transparent;
+  transition: background-color 0.3s;}
+  </style>
+</head>
+<body>
+  <nav class="navbar fixed-top navbar-transparent" id="navbar">
+    <ul>
+      <li><a href="welcome.html">Profile</a></li>
+      <li><a href="events.php">Events</a></li>
+      <li><a href="skins.php">Skins</a></li>
+      <li><a href="subscription.html">Subscription</a></li>
+    </ul>
+    <ul>
+      <li><a href="logout.php">Logout</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container mt-4">
+    <h1 class="welcome-message">Gamer's Profile</h1>
+    <div class="user-info">
+      <div class="profile-header">
+      <img src="uploads/valorant-banner.jpg" id="profile-banner"class="profile-banner" alt="Profile Banner">
+      <img src="" id="profile-avatar" class="profile-avatar" alt="Profile Picture">
+      <h2 id="user-name"></h2>
+    </div>
+    <div class="profile-details">
+      <div class="level-bar">
+        <div class="level-progress">
+          <div class="draggable-element"></div>
+        </div> 
+      </div>
+      <div class="game-info">
+      <h3 id="game-interest"></h3>
+      <h3 id="user-tier"></h3>
+      </div>
+      <div class="user-credentials">
+      <h3 id="user-id"></h3>
+      <h3 id="user-email"></h3> <br>
+      </div>
+    </div>
+      <a href="update-profile.html"><button id="update-profile-btn" class="btn btn-primary">Update Profile</button></a>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+  <!--  -->
+  <script>
+  $(document).ready(function() {
+  $.ajax({
+    url: "welcome-process.php",
+    method: "GET",
+    dataType: "json",
+    success: function(response) {
+      var userInfo = response;
+      var name = userInfo.name;
+      var gameInterest = userInfo.gameInterest;
+      var tier = userInfo.tier;
+      var profileBanner = userInfo.profileBanner;
+      var profilePicture = userInfo.profilePicture;
+      var level = userInfo.level;
+      var userId = userInfo.userId;
+      var email = userInfo.email;
+
+      $("#user-name").text(name);
+      $("#game-interest").text("Game: " + gameInterest);
+      $("#user-tier").text("Subscription Tier: " + tier);
+      $(".profile-banner").attr("src", profileBanner);
+      $("#profile-avatar").attr("src", profilePicture);
+      $(".level-progress").css("width", level + "%");
+      $("#user-id").text("User ID: " + userId);
+      $("#user-email").text("Email: " + email);
+
+       // Define the tier colors
+       var tierColors = {
+        "Standard": "#00ff7b", // Green
+        "Premium": "#8e44ad", // Violet
+        "VIP": "#ffd700" // Gold
+      };
+      var borderColor = tierColors[tier] || "#00ff7b"; // Default to green if tier color is not defined
+      $(".profile-avatar").css("border-color", borderColor);
+
+
+
+      $("body").removeClass("background-valorant background-apex background-counterstrike");
+                if (gameInterest === "Valorant") {
+                    $("body").addClass("background-valorant");
+                } else if (gameInterest === "Apex Legends") {
+                    $("body").addClass("background-apex");
+                } else if (gameInterest === "CSGO") {
+                    $("body").addClass("background-counterstrike");
+                }
+    },
+    error: function(xhr, status, error) {
+      console.log(error);
+      $(".user-info").html("<p>Error loading user information.</p>");
+    }
+  });
+});
+  </script>
+
+  <script>
+  $(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+
+    if (scroll > 0) {
+      $(".navbar").addClass("navbar-scrolled");
+    } else {
+      $(".navbar").removeClass("navbar-scrolled");
+    }
+
+    if (scroll === 0 || scroll + $(window).height() === $(document).height()) {
+      $(".navbar").addClass("navbar-transparent");
+    } else {
+      $(".navbar").removeClass("navbar-transparent");
+    }
+
+
+  });
+  </script>
+<script>
+/* interactable level bar */
+$(document).ready(function() {  
+    var levelBar = $(".level-bar");
+    var levelProgress = $(".level-progress");
+    var draggableElement = $(".draggable-element");
+    draggableElement.draggable({
+      axis: "x",
+      containment: "parent",
+      drag: function() {
+        updateLevelBarColor();
+      }
+    });
+
+    draggableElement.draggable({
+      axis: "x-reverse",
+      containment: "parent",
+      drag: function() {
+        updateLevelBarColor();
+      }
+    });
+
+    function updateLevelBarColor() {
+      var draggablePosition = draggableElement.position().left;
+      var levelBarWidth = levelBar.width();
+      var percentage = 1- (draggablePosition + draggableElement.width()) / levelBarWidth;
+
+      if (percentage >= 0.5) {
+        levelProgress.css("background-color", " #FF3131");
+      } else if (percentage >= 0.25) {
+        levelProgress.css("background-color", "#E0E722");
+      } else {
+        levelProgress.css("background-color", "#4caf4c");
+      }
+    }
+  });
+  </script>
